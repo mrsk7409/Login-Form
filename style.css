@@ -1,0 +1,16 @@
+
+
+div img{
+    height:80px;
+    width:300px;
+
+}
+fieldset{
+    display: flex;
+    background-color: rgb(171, 171, 171);
+}
+
+li{
+    display: inline;
+    padding: 2px;
+}
