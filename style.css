@@ -2,7 +2,7 @@
 
 div img{
     height:80px;
-    width:300px;
+    border-color: blue red;
 
 }
 fieldset{
