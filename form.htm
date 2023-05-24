@@ -1,36 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
     <style>
-        h1{
+        h1 {
             text-align: center;
         }
-        form{
+
+        form {
+            border: black solid;
+            border-radius: 20px;
+            background-color: yellow;
+            margin: 0% 10% 10% 60%;
+            padding-top: 30px;
 
         }
 
+        body {
+            background-image: url('poornima.jpeg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        input {
+            margin: 5px;
+        }
+        .submit{
+            margin-left: 50px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
-<body>
-    <h1>Registration Form</h1>
-    <form action="">
-        <label for="first name">First Name:-</label>
-        <input type="text" required>
-        <label for="last name">Last Name:-</label>
-        <input type="text" required>
-        <br><br>
-        <label for="D.O.B">D.O.B:-</label>
-        <input type="date"required>
 
+<body>
+    <h1>Addmission Registrasion Form</h1>
+    <form action="">
+        <label for="first name">First Name:<span class="required">*</span></label>
+        <input type="text" name="name" id="Name" autocomplete="off" class="form-control widget_input" maxlength="255"
+            minlength="1" placeholder="Enter Name *" value="" required>
+        <br>
+            <label for="last name">Last Name:<span class="required">*</span></label>
+        <input type="text" name="name" id="Name" autocomplete="off" class="form-control widget_input" maxlength="255"
+            minlength="1" placeholder="Enter Name *" value="" required>
+        <br>
+        <label for="D.O.B">D.O.B:*</label>
+        <input type="date" required>
+
+        <br>
+        <label class="control-label widget_label" for="Email">Email Address:<span class="required">*</span></label>
+        <input type="text" name="Email" id="Email" autocomplete="off" maxlength="50" class="email"
+            data-type="text" onchange="return enable_button();" placeholder="Enter Email Address *" value="">
+        <br>
+        <label for="phone number">Phone Number:*</label>
+        <input type="tel" name="mobile" id="Mobile" autocomplete="off" maxlength="10" class="phone"
+            onkeypress="return isNumber(event);" pattern="[0-9]*" placeholder="Preferably WhatsApp Number*"
+            onchange="return" enable_button(); value="">
+        <br>
+        <label class="control-label widget_label">State:<span class="required">*</span></label>
+        <select name="state_id" id="StateId" class="state"
+            onchange="GetChildByMachineKey(this.value,'CityId');" data-label="Select State *"
+            data-none-selected-text="Select State" fdprocessedid="iyjan">
+            <option value="" selected="selected">Select State *</option>
+            <option value="26909">Andaman and Nicobar</option>
+            <option value="26920">Andhra Pradesh</option>
+            <option value="27573">Arunachal Pradesh</option>
+            <option value="27718">Assam</option>
+            <option value="28070">Bihar</option>
+            <option value="28449">Chandigarh</option>
+            <option value="28455">Chhattisgarh</option>
+            <option value="28644">Dadra And Nagar Haveli</option>
+            <option value="28650">Daman And Diu</option>
+            <option value="28655">Delhi</option>
+            <option value="28678">Goa</option>
+            <option value="28697">Gujarat</option>
+            <option value="28972">Haryana</option>
+            <option value="29297">Himachal Pradesh</option>
+            <option value="29424">Jammu and Kashmir</option>
+            <option value="29647">Jharkhand</option>
+            <option value="29881">Karnataka</option>
+            <option value="30137">Kerala</option>
+            <option value="177104">Ladakh</option>
+            <option value="30279">Lakshadweep</option>
+            <option value="30284">Madhya Pradesh</option>
+            <option value="30624">Maharashtra</option>
+            <option value="31026">Manipur</option>
+            <option value="31058">Meghalaya</option>
+            <option value="31123">Mizoram</option>
+            <option value="31172">Nagaland</option>
+            <option value="31227">Odisha</option>
+            <option value="31606">Puducherry</option>
+            <option value="31626">Punjab</option>
+            <option value="31766">Rajasthan</option>
+            <option value="32032">Sikkim</option>
+            <option value="32052">Tamil Nadu</option>
+            <option value="32319">Telangana</option>
+            <option value="32659">Tripura</option>
+            <option value="32784">Uttar Pradesh</option>
+            <option value="33411">Uttarakhand</option>
+            <option value="33506">West Bengal</option>
+        </select>
+        <label class="control-label widget_label">City:<span class="required">*</span></label>
+        <select name="city_id" id="CityId" class="city">
+            <option value="" selected="selected">Select City*</option>
+        </select>
+        <br>
+        <label class="control-label widget_label">Applying For:<span class="required">*</span></label>
+        <select name="university_id" id="UniversityId" class="form-control select-arrow-cust widget_input"
+            onchange="GetChildByMachineKey(this.value,'CourseId');" data-label="Applying For *"
+            data-none-selected-text="Select Applying For" fdprocessedid="5s1z4n">
+            <option value="" selected="selected">Applying For *</option>
+            <option value="476269">Diploma</option>
+            <option value="476187">Doctoral</option>
+            <option value="476237">Post Graduate</option>
+            <option value="476184">Under Graduate</option>
+        </select>
+        <br>
+        <label class="control-label widget_label">Course: <span class="required">*</span></label>
+        <select name="course_id" id="CourseId" class="form-control select-arrow-cust widget_input"
+            onchange="GetChildByMachineKey(this.value,'SpecializationId');" data-label="Select Course *"
+            data-none-selected-text="Select Course" fdprocessedid="9wzxzn">
+            <option value="" selected="selected">Course *</option>
+        </select>
+        <br>
+        <label class="control-label widget_label">Specialization: <span class="required">*</span></label>
+        <select name="specialization_id" id="SpecializationId" data-label="Select Specialization *"
+            class="form-control select-arrow-cust widget_input" data-none-selected-text="Select Specialization"
+            fdprocessedid="hq09l8">
+            <option value="" selected="selected">Specialization * </option>
+        </select>
+        <br>
+        <label><input type="hidden" name="Agree" value="0"><input type="checkbox" name="Agree" value="1" id="Agree"
+                class="widget_input"><span class="agree-condition">I agree to receive information from Poornima
+                University* </span></label>
         <br><br>
-        <input type="submit">
+        <button type="button" id="registerBtn" class="submit" fdprocessedid="g1bbwk">Submit</button>
 
 
     </form>
-    
+
 </body>
+
 </html>
